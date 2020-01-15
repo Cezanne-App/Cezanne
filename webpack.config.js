@@ -1,10 +1,10 @@
-const ENTRY = __dirname + '/client/src/index.jsx';
-const OUTPUT = __dirname + '/client/dist';
+const ENTRY_DIR = __dirname + '/client/src/index.jsx';
+const OUTPUT_DIR = __dirname + '/client/dist';
 
-const config = {
-  entry: ENTRY,
+module.exports = {
+  entry: ENTRY_DIR,
   output: {
-    path: OUTPUT,
+    path: OUTPUT_DIR,
     filename: 'bundle.js'
   },
   module: {
@@ -13,10 +13,6 @@ const config = {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
         exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -24,5 +20,3 @@ const config = {
     extensions: ['.js', '.jsx']
   }
 };
-
-module.exports = config;
