@@ -1,0 +1,23 @@
+{
+  "name": "cezanne",
+  "version": "1.0.0",
+  "description": "Online platform to buy and sell artwork",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cezanne-App/Cezanne.git"
+  },
+  "author": "Sebastian Coronel Hamilton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cezanne-App/Cezanne/issues"
+  },
+  "homepage": "https://github.com/Cezanne-App/Cezanne#readme",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
