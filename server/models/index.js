@@ -2,6 +2,9 @@ const db = require('../../db/index.js');
 
 module.exports = {
   artWorks: {
+    find: () => {
+      return db.Artwork.find()
+    },
     add: (artWork) => {
       // db.Artwork.create(
       // {
