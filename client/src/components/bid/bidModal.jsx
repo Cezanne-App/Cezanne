@@ -19,7 +19,7 @@ const BidModal = ({ bidArtwork , modalIsOpen, setModalIsOpen }) => {
     } else {
       return `$${bidArtwork.highestBid}`;
     }
-  }
+  };
 
   return (
     <Modal
