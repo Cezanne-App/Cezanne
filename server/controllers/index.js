@@ -6,7 +6,8 @@ module.exports = {
 
     },
     post: (req, res) => {
-      
+      models.artWorks.add()
+      res.sendStatus(201);
     }
   }
 }
