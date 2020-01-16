@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Post from './post.jsx';
 
 const Feed = () => {
-  const [posts, setPosts] = useState([1,2,3]);
+  const [posts, setPosts] = useState([]);
   const maxPosts = 10;
 
   return (

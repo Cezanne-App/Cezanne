@@ -1,12 +1,14 @@
 const express = require('express');
 const morgan  = require('morgan');
 const bodyParser = require('body-parser');
+const router = require('./routes/routes.js');
 
 const app = express();
 
 // Middleware
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use('/', router);
 
 // Serve Static Files
 app.use(express.static(__dirname + '/../client/dist'));
