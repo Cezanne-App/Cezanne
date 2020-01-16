@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 
-const Post = ({ artWork }) => {
+const Post = ({ artWork, setModalIsOpen }) => {
   return (
     <div className='post'>
       <article>
@@ -15,6 +15,7 @@ const Post = ({ artWork }) => {
       </div>
       <div>
         <span>${artWork.basePrice}</span><span>{artWork.highestBid}</span><span>{moment(artWork.expirationDate).format('ll')}</span>
+        <button onClick={() => setModalIsOpen(true)}>Bid!</button>
       </div>
       </article>
     </div>

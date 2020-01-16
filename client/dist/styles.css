@@ -178,3 +178,47 @@ html body #app {
   display: flex;
   justify-content: center;
 }
+
+/* 
+
+__  __            _          _ 
+|  \/  |  ___   __| |  __ _  | |
+| |\/| | / _ \ / _` | / _` | | |
+|_|  |_| \___/ \__,_| \__,_| |_|
+                                 
+*/
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  max-height: 85vh;
+  max-width: 85vw;
+  overflow: auto;
+  background-color: white;
+  margin-right: -50%;
+  padding: 2%;
+  transform: translate(-50%, -50%);
+}
+
+.ModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal-header {
+  display: flex;
+  flex: 1 1;
+  justify-content: space-between;
+}
+
+#bidModal {
+  overflow: scroll;
+  width: 45%;
+  height: 45%;
+}
