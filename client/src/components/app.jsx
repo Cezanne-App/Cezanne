@@ -4,14 +4,14 @@ import Feed from './feed.jsx';
 import BidModal from './bidModal.jsx'
 
 const App = () => {
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [bidArtwork, setBidArtwork] = useState(null);
 
   return(
     <>
       <Navbar />
-      <Feed setModalIsOpen={setModalIsOpen}/>
-      <BidModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+      <Feed setBidArtwork={setBidArtwork} setModalIsOpen={setModalIsOpen}/>
+      <BidModal bidArtwork={bidArtwork} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
     </>
   );
 };

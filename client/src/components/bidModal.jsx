@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-const BidModal = ({ modalIsOpen, setModalIsOpen }) => {
+const BidModal = ({ bidArtwork , modalIsOpen, setModalIsOpen }) => {
 
   var subtitle;
   const header = () => {
@@ -27,10 +27,7 @@ const BidModal = ({ modalIsOpen, setModalIsOpen }) => {
       className="Modal" overlayClassName="ModalOverlay"
       contentLabel="Example Modal">
       <div className="modal-header">
-        {<h2 ref={_subtitle => (subtitle = _subtitle)}>Comparison</h2>}
-        <button onClick={(e) => handleModalClose(e)}>
-          x
-        </button>
+        {<h2 ref={_subtitle => (subtitle = _subtitle)}>{bidArtwork === null ? '' : bidArtwork.title}</h2>}
       </div>
     </Modal >
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Post from './post.jsx';
 import { getPosts } from '../../helpers/index.js';
 
-const Feed = ({ setModalIsOpen }) => {
+const Feed = ({ setBidArtwork, setModalIsOpen }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Feed = ({ setModalIsOpen }) => {
   return (
     <div className='feed'>
       {posts.map(post => {
-        return <Post key={post._id} artWork={post} setModalIsOpen={setModalIsOpen}/>
+        return <Post key={post._id} artWork={post} setBidArtwork={setBidArtwork} setModalIsOpen={setModalIsOpen}/>
       })}
     </div>
   );
