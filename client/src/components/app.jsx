@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './navbar.jsx';
 import Feed from './feed.jsx';
-import BidModal from './bidModal.jsx'
+import BidModal from './bid/bidModal.jsx'
 
 const App = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);

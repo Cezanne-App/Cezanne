@@ -96,7 +96,7 @@ html body #app {
   overflow-y: scroll;
 }
 
-button {
+button, input {
   outline: none;
 }
 
@@ -170,25 +170,7 @@ button {
   background-color: rgba(0,136,169,0.8);
 }
 
-/* FEED */
 
-.feed {
-  background-color: white;
-  margin: 0.5% 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 60%;
-}
-
-.post {
-  width: 100%;
-  border:0.5px solid lightgrey;
-  padding: 0.5% 0;
-  display: flex;
-  justify-content: center;
-}
 
 /* 
 
@@ -209,11 +191,11 @@ __  __            _          _
   max-width: 85vw;
   overflow: auto;
   background-color: white;
-  margin-right: -50%;
+  /* margin-right: -50%; */
   padding: 2%;
   transform: translate(-50%, -50%);
   outline: none;
-  border:0.5px solid lightgrey;
+  border:1.5px solid lightgrey;
 }
 
 .ModalOverlay {
@@ -234,4 +216,45 @@ __  __            _          _
   overflow: scroll;
   width: 45%;
   height: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#bid-form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #d3d3d354;
+}
+
+
+/* 
+  ___   ___   ___   ___  
+ | __| | __| | __| |   \ 
+ | _|  | _|  | _|  | |) |
+ |_|   |___| |___| |___/ 
+                         
+*/
+
+.feed {
+  background-color: white;
+  margin: 0.5% 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+.post {
+  width: 100%;
+  border:0.5px solid lightgrey;
+  padding: 0.5% 0;
+  display: flex;
+  justify-content: center;
 }

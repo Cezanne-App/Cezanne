@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 import Post from './post.jsx';
 import { getPosts } from '../../helpers/index.js';
 
@@ -12,6 +13,7 @@ const Feed = ({ setBidArtwork, setModalIsOpen }) => {
   return (
     <div className='feed'>
       {posts.map(post => {
+        post.expirationDate = moment(post.expirationDate).format('ll');
         return <Post key={post._id} artWork={post} setBidArtwork={setBidArtwork} setModalIsOpen={setModalIsOpen}/>
       })}
     </div>

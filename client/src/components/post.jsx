@@ -18,7 +18,7 @@ const Post = ({ artWork, setBidArtwork, setModalIsOpen }) => {
         <span>{artWork.technique} | </span><span>{artWork.height} x {artWork.width}</span>
       </div>
       <div>
-        <span>${artWork.basePrice}</span><span>{artWork.highestBid}</span><span>{moment(artWork.expirationDate).format('ll')}</span>
+        <span>${artWork.basePrice}</span><span>{artWork.highestBid}</span><span>{artWork.expirationDate}</span>
         <button onClick={handleBidClick}>Bid!</button>
       </div>
       </article>
