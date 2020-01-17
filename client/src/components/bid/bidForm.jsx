@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { getPosts } from '../../../helpers/index.js';
 import { updateBid } from '../../../helpers/index.js';
 
-const BidForm = ({ artworkId, highestBid, setHighestBid, setArtworks }) => {
+const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, setArtworks }) => {
   const [bidPrice, setBidPrice] = useState(null);
   const [isInvalid, setIsInvalid] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('x');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (bidPrice <= highestBid || bidPrice === null || isNaN(bidPrice) ) {
+    if (bidPrice <= highestBid || bidPrice === null || isNaN(bidPrice) || bidPrice < basePrice) {
       setIsInvalid(true);
       setSubmitMessage('Bid is not valid!');
     } else {

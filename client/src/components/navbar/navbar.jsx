@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navbar = ({user} = 'User') => {
+const Navbar = ({user, setAddModalIsOpen} = 'User') => {
   return (
     <>
       <header className='nav-bar'>
@@ -13,7 +13,7 @@ const Navbar = ({user} = 'User') => {
             <li><a href='#'>User</a></li>
           </ul>
         </nav>
-        <a className='cta' href='#'><button>Publish your work!</button></a>
+        <a className='cta' href='#'><button onClick={() => setAddModalIsOpen(true)}>Publish your work!</button></a>
       </header>
     </>
   );

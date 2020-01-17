@@ -29,11 +29,11 @@ const BidModal = ({ bidArtwork, setArtworks, modalIsOpen, setModalIsOpen }) => {
       </div>
       <div className='bid-form-info'>
         <p>Base price: $ {bidArtwork.basePrice}</p>
-        <p>{highestBid === null ? 'No bids for this artwork yet!' : `Highest Bid: $ ${highestBid}`}</p>
+        <p>{highestBid === null || highestBid === undefined? 'No bids for this artwork yet!' : `Highest Bid: $ ${highestBid}`}</p>
         <p className='bid-expiration-date'>The bidding period ends on {bidArtwork.expirationDate}</p>
       </div>
  
-      <BidForm artworkId={bidArtwork._id} highestBid={highestBid} setHighestBid={setHighestBid} setArtworks={setArtworks} />
+      <BidForm basePrice={bidArtwork.basePrice} artworkId={bidArtwork._id} highestBid={highestBid} setHighestBid={setHighestBid} setArtworks={setArtworks} />
     </Modal >
   );
 };
