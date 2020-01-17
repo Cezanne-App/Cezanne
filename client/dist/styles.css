@@ -303,6 +303,8 @@ __  __            _          _
   height: 15%;
   padding-left: 1.5%;
   position: relative;
+  font-weight: 300;
+  font-size: 0.85em;
 }
 
 .post-info {
@@ -310,8 +312,6 @@ __  __            _          _
   height: 100%;
   display: flex;
   flex-direction: column;
-  font-size: 0.9em;
-  font-weight: 300;
 }
 
 .post-info h4 {
@@ -322,19 +322,20 @@ __  __            _          _
 }
 
 .post-prices {
-  margin-top: auto;
-  position: absolute;
-  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .post-bid-button {
   width: 20%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 2% 0;
+  align-items: center;
 }
 
 .post-icon {
   object-fit: cover;
+  margin-bottom: 5%;
 }
