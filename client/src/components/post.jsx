@@ -18,8 +18,8 @@ const Post = ({ artWork, setBidArtwork, setModalIsOpen }) => {
         <div className='post-bid-button'>
           <button onClick={handleBidClick}><img className='post-icon' src='./images/post_icon.png' height='30px' width='30px'/></button>
           <div className='post-prices'>
-            <span>{`${artWork.highestBid === null ? 'No bids yet!' : `Highest: $${artWork.highestBid}`}`}</span>
-            <span>{`Base: $${artWork.basePrice}`}</span>
+            <span>{`${artWork.highestBid === null ? 'No bids yet!' : `Highest: $ ${artWork.highestBid}`}`}</span>
+            <span>{`Base: $ ${artWork.basePrice}`}</span>
           </div> 
         </div>
       </div>

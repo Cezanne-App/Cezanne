@@ -8,8 +8,8 @@ const Navbar = ({user} = 'User') => {
         <span className='nav-title'>Cezanne</span>
         <nav className='nav-menu'>
           <ul className='nav-links'>
-            <li><a href='#'>About</a></li>
-            <li><a href='#'>Projects</a></li>
+            <li><a href='#'>Artists</a></li>
+            <li><a href='#'>Discover</a></li>
             <li><a href='#'>User</a></li>
           </ul>
         </nav>

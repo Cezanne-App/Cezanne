@@ -27,8 +27,12 @@ const BidModal = ({ bidArtwork, setArtworks, modalIsOpen, setModalIsOpen }) => {
       <div className="modal-header">
         {<h2 ref={_subtitle => (subtitle = _subtitle)}>{bidArtwork.title}</h2>}
       </div>
-      <span>Base price: ${bidArtwork.basePrice}</span><span>{highestBid === null ? 'No bids for this artwork yet!' : highestBid}</span>
-      <span>The bidding period ends on {bidArtwork.expirationDate}</span>
+      <div className='bid-form-info'>
+        <p>Base price: $ {bidArtwork.basePrice}</p>
+        <p>{highestBid === null ? 'No bids for this artwork yet!' : `Highest Bid: $ ${highestBid}`}</p>
+        <p className='bid-expiration-date'>The bidding period ends on {bidArtwork.expirationDate}</p>
+      </div>
+ 
       <BidForm artworkId={bidArtwork._id} highestBid={highestBid} setHighestBid={setHighestBid} setArtworks={setArtworks} />
     </Modal >
   );
