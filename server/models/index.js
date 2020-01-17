@@ -26,6 +26,9 @@ module.exports = {
       //     console.log('Created!')
       //   }
       // })
+    },
+    updateHighestBid: (id, bid) => {
+      return db.Artwork.update({_id: id}, {highestBid: bid});
     }
   }
 }

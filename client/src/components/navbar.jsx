@@ -5,6 +5,7 @@ const Navbar = ({user} = 'User') => {
     <>
       <header className='nav-bar'>
         <img className='logo' src='./images/cezanne_logo.png' alt='logo'/>
+        <span className='nav-title'>Cezanne</span>
         <nav className='nav-menu'>
           <ul className='nav-links'>
             <li><a href='#'>About</a></li>

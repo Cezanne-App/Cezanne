@@ -1,18 +1,31 @@
 import React, { useState } from 'react';
+import { getPosts } from '../../../helpers/index.js';
+import { updateBid } from '../../../helpers/index.js';
 
-const BidForm = ({ currentValue }) => {
-  const [isInvalid, setIsInvalid] = useState(false);
+const BidForm = ({ artworkId, highestBid, setHighestBid, setArtworks }) => {
   const [bidPrice, setBidPrice] = useState(null);
+  const [isInvalid, setIsInvalid] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('x');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (bidPrice <= currentValue || bidPrice === null || isNaN(bidPrice) ) {
+    if (bidPrice <= highestBid || bidPrice === null || isNaN(bidPrice) ) {
       setIsInvalid(true);
       setSubmitMessage('Bid is not valid!');
     } else {
-      setIsInvalid(false);
-      setSubmitMessage('Great! You are now the highest bidder!');
+      updateBid(artworkId, bidPrice)
+      .then(() => getPosts())
+      .then(({data}) => {
+        setArtworks(data);
+        setHighestBid(bidPrice);
+        setIsInvalid(false);
+        setSubmitMessage('You are now the highest bidder!');
+      })
+      .catch(e => {
+        setIsInvalid(true);
+        setSubmitMessage('Could not save the bid. Try again!');
+        console.error(e);
+      });
     }
   };
 
