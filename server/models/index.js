@@ -6,7 +6,7 @@ module.exports = {
       return db.Artwork.find()
     },
     add: (post) => {
-      return db.Artwork.save(post);
+      return db.Artwork.create(post);
     },
     updateHighestBid: (id, bid) => {
       return db.Artwork.update({_id: id}, {highestBid: bid});
