@@ -11,7 +11,6 @@ module.exports = {
       })
     },
     post: (req, res) => {
-      console.log('here')
       models.artWorks.add(req.body.post)
       .then(() => res.sendStatus(201))
       .catch(e => {
