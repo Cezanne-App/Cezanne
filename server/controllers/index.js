@@ -11,8 +11,13 @@ module.exports = {
       })
     },
     post: (req, res) => {
-      models.artWorks.add()
-      res.sendStatus(201);
+      console.log('here')
+      models.artWorks.add(req.body.post)
+      .then(() => res.sendStatus(201))
+      .catch(e => {
+        res.sendStatus(500);
+        console.error(e)
+      });
     },
     put: (req, res) => {
       const id = req.params.id;

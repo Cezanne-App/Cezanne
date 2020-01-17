@@ -5,7 +5,8 @@ module.exports = {
     find: () => {
       return db.Artwork.find()
     },
-    add: (artWork) => {
+    add: (post) => {
+      return db.Artwork.save(post)
       // db.Artwork.create(
       // {
       //   title: 'Les Joueurs de Cartes',

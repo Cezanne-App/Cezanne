@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { getPosts } from '../../../helpers/index.js';
 import { updateBid } from '../../../helpers/index.js';
 
-const BidForm = ({ artworkId, highestBid, setHighestBid, setArtworks }) => {
+const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, setArtworks }) => {
   const [bidPrice, setBidPrice] = useState(null);
   const [isInvalid, setIsInvalid] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('x');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (bidPrice <= highestBid || bidPrice === null || isNaN(bidPrice) ) {
+    if (bidPrice <= highestBid || bidPrice === null || isNaN(bidPrice) || bidPrice < basePrice) {
       setIsInvalid(true);
       setSubmitMessage('Bid is not valid!');
     } else {
@@ -37,12 +37,10 @@ const BidForm = ({ artworkId, highestBid, setHighestBid, setArtworks }) => {
     } else if (isInvalid === true) {
       return {
         visibility: 'visible',
-        color: 'red'
       }
     } else {
       return {
         visibility: 'visible',
-        color: 'green'
       }
     }
   };
@@ -50,12 +48,14 @@ const BidForm = ({ artworkId, highestBid, setHighestBid, setArtworks }) => {
   return (
     <div id='bid-form-container'>
       <div id='bid-form-subcontainer'>
+        <div id='bid-form-input-box'>
         <form id='bidForm' onSubmit={(e) => handleSubmit(e)}>
           <input type='text' placeholder='Enter your bid' onChange={({target}) => setBidPrice(parseInt(target.value))}/>
         </form>
-        <button form='bidForm'>Bid</button>
+        <button form='bidForm'>Bid!</button>
+        </div>
+        <div className='form-submit-message' style={getSubmitMessageStyle()}>{submitMessage}</div>
       </div>
-      <div style={getSubmitMessageStyle()}>{submitMessage}</div>
     </div>
   );
 };
