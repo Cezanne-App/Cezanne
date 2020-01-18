@@ -125,16 +125,83 @@ ___      _______  _______  ___   __    _
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  overflow-x: hidden;
+  overflow-y: hidden;
   align-items: center;
+  background-color: #ffff;
 }
 
-#login-form {
+#login-img-panel {
+  height: 100%;
+  width: 30%;
+}
+
+#login-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#login-form-container {
+  height: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+#login-form-elements {
+  height: 50%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+#login-form-elements h2 {
+  font-weight: 600;
+}
+
+#login-form-elements input {
+  outline: auto;
+  outline-width: 0.2em;
+  outline-color: #e6ecf0;
+  margin: 2% 0;
+  padding: 4%;
+  font-weight: 300;
+  font-size: 0.8em;
+  color: black;
+}
+
+#login-form-elements input:focus {
+  outline-color: #647786;
+  outline-width: 0.20em;
+}
+
+#login-form-elements input::placeholder {
+color: #647786;
+font-size: 1em;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 3% 0;
+}
+
+#login-form-elements button {
+  padding: 3%;
+  font-size: 0.8em;
+  background-color: rgba(41, 73, 103, 1);
+  cursor: pointer;
+}
+
+#login-form-elements button:hover {
+  background-color: rgba(41, 73, 103, 0.8);
+}
+
 
 
 /* 
