@@ -2,8 +2,8 @@ const router= require('express').Router();
 const controllers = require('../controllers/index.js');
 
 // Artworks
-router.get('/artworks', controllers.artWorks.get);
-router.post('/artworks', controllers.artWorks.post);
-router.put('/artworks/:id', controllers.artWorks.put);
+router.get('/artworks', controllers.artworks.get);
+router.post('/artworks', controllers.artworks.post);
+router.put('/artworks/:id', controllers.artworks.put);
 
 module.exports = router;

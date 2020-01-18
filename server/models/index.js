@@ -3,7 +3,7 @@ const db = require('../../db/index.js');
 module.exports = {
   artWorks: {
     find: () => {
-      return db.Artwork.find()
+      return db.Artwork.find();
     },
     add: (post) => {
       return db.Artwork.create(post);
@@ -12,4 +12,4 @@ module.exports = {
       return db.Artwork.update({_id: id}, {highestBid: bid});
     }
   }
-}
+};

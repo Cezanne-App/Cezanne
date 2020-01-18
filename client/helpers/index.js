@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const getPosts = () => {
+export const getArtworks = () => {
   return axios.get('/artworks');
 };
 
-export const addPost = (post) => {
+export const addArtwork = (post) => {
   return axios.post('/artworks', {
     post: post
   });

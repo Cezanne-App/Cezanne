@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getPosts } from '../../../helpers/index.js';
+import { getArtworks } from '../../../helpers/index.js';
 import { updateBid } from '../../../helpers/index.js';
 
 const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, setArtworks }) => {
@@ -14,7 +14,7 @@ const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, setArtworks 
       setSubmitMessage('Bid is not valid!');
     } else {
       updateBid(artworkId, bidPrice)
-      .then(() => getPosts())
+      .then(() => getArtworks())
       .then(({data}) => {
         setArtworks(data);
         setHighestBid(bidPrice);

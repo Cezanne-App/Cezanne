@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
+const host = process.env.MONGODB_URI || 'mongodb://localhost/cezanne';
 
-const url = process.env.MONGODB_URI || 'mongodb://localhost/cezanne';
-console.log(url);
-mongoose.connect(url, {
+mongoose.connect(host, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -23,6 +22,16 @@ const artworkSchema = new mongoose.Schema({
   expirationDate: Date
 });
 
+const bidSchema = new mongoose.Schema({
+  artworkId: Number,
+  bidderId: Number,
+  ownerId: Number,
+  value: Number,
+  date: Date
+});
+
 const Artwork = mongoose.model('Artwork', artworkSchema);
+const Bid = mongoose.model('Bid', bidSchema);
 
 module.exports.Artwork = Artwork;
+module.exports.Bid = Bid;

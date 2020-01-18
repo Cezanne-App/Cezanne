@@ -10,7 +10,7 @@ const Navbar = ({user, setAddModalIsOpen} = 'User') => {
           <ul className='nav-links'>
             <li><a href='#'>Artists</a></li>
             <li><a href='#'>Discover</a></li>
-            <li><a href='#'>User</a></li>
+            <li><a href='#'>{user}</a></li>
           </ul>
         </nav>
         <a className='cta' href='#'><button onClick={() => setAddModalIsOpen(true)}>Publish your work!</button></a>
