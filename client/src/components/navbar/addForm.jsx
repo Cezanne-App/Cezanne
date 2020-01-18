@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { addPost } from '../../../helpers/index.js';
-import { getPosts } from '../../../helpers/index.js';
+import { addArtwork } from '../../../helpers/index.js';
+import { getArtworks } from '../../../helpers/index.js';
 
 const AddForm = ({ setArtworks }) => {
   const [author, setAuthor] = useState('');
@@ -24,9 +24,9 @@ const AddForm = ({ setArtworks }) => {
       expirationDate: expirationDate,
       image: image
     }
-    addPost(newPost)
+    addArtwork(newPost)
     .then(() => {
-      getPosts()
+      getArtworks()
       .then(({data}) => setArtworks(data))
     })
     .catch(e => console.error(e))

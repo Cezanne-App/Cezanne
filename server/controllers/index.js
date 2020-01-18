@@ -1,7 +1,7 @@
 const models = require('../models/index.js');
 
 module.exports = {
-  artWorks: {
+  artworks: {
     get: (req, res) => {
       models.artWorks.find()
       .then(data => res.json(data))

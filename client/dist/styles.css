@@ -110,6 +110,33 @@ button, input {
   align-items: center;
 }
 
+/*
+___      _______  _______  ___   __    _ 
+|   |    |       ||       ||   | |  |  | |
+|   |    |   _   ||    ___||   | |   |_| |
+|   |    |  | |  ||   | __ |   | |       |
+|   |___ |  |_|  ||   ||  ||   | |  _    |
+|       ||       ||   |_| ||   | | | |   |
+|_______||_______||_______||___| |_|  |__|
+
+*/
+
+#login-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 /* 
   _  _                  ___              
  | \| |  __ _  __ __   | _ )  __ _   _ _ 
