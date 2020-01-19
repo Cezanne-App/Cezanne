@@ -20,6 +20,6 @@ app.listen(port, (e) => {
   if (e) {
     console.error(e);
   } else {
-    console.log(`Server listening in port ${port}...`);
+    console.log(`Server listening on port ${port}...`);
   }
 });
