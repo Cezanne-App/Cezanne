@@ -1,6 +1,4 @@
 # Cezanne
 Cezanne is a platform that allows artists to publish and sell their artwork to the world. Visit at:
 
-[cezzanecom](http://cezanne.herokuapp.com)
-    
-
+[cezzane.com](http://cezanne.herokuapp.com)
