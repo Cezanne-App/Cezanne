@@ -9,5 +9,9 @@ Cezzane allows artists to upload their artwork to the platform and set a base pr
 ### How much Cezanne charges?
 Cezanne will charge a 15% fee for every transaction. The remaining amount is for the artist.
 
-
+### Screenshots
 <img width="1440" alt="Screen Shot 2020-01-30 at 11 34 14 AM" src="https://user-images.githubusercontent.com/55328949/73469701-b5027980-437e-11ea-8d90-c722eefca2dd.png">
+
+<img width="1440" alt="Screen Shot 2020-01-30 at 11 36 05 AM" src="https://user-images.githubusercontent.com/55328949/73469814-d95e5600-437e-11ea-91ec-92361db174cc.png">
+
+<img width="1440" alt="Screen Shot 2020-01-30 at 11 35 35 AM" src="https://user-images.githubusercontent.com/55328949/73469927-0448aa00-437f-11ea-9fbd-641c8932a395.png">
