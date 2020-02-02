@@ -1,12 +1,13 @@
-const mongoose = require('mongoose');
-const host = process.env.MONGODB_URI || 'mongodb://localhost/cezanne';
+const mongoose = require("mongoose");
+const host = process.env.MONGODB_URI || "mongodb://localhost/cezanne";
 
-mongoose.connect(host, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('Connected to MongoDB'))
-.catch((error) => console.error(error));
+mongoose
+  .connect(host, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(error => console.error(error));
 
 const artworkSchema = new mongoose.Schema({
   title: String,
@@ -19,6 +20,7 @@ const artworkSchema = new mongoose.Schema({
   image: String,
   basePrice: Number,
   highestBid: Number,
+  highestBidderId: Number,
   expirationDate: Date
 });
 
@@ -30,8 +32,17 @@ const bidSchema = new mongoose.Schema({
   date: Date
 });
 
-const Artwork = mongoose.model('Artwork', artworkSchema);
-const Bid = mongoose.model('Bid', bidSchema);
+const userSchema = new mongoose.Schema({
+  name: String,
+  lastName: String,
+  userName: String,
+  email: String,
+  address: String,
+  isArtist: Boolean
+});
+
+const Artwork = mongoose.model("Artwork", artworkSchema);
+const Bid = mongoose.model("Bid", bidSchema);
 
 module.exports.Artwork = Artwork;
 module.exports.Bid = Bid;

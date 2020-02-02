@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import BidForm from './bidForm.jsx'
+import BidForm from './bidForm.jsx';
+import BiddingChart from './biddingChart.jsx';
 
 const BidModal = ({ bidArtwork, setArtworks, modalIsOpen, setModalIsOpen }) => {
   bidArtwork = bidArtwork === null ? {} : bidArtwork 
@@ -33,6 +34,7 @@ const BidModal = ({ bidArtwork, setArtworks, modalIsOpen, setModalIsOpen }) => {
         <p className='bid-expiration-date'>The bidding period ends on {bidArtwork.expirationDate}</p>
       </div>
  
+      <BiddingChart />
       <BidForm basePrice={bidArtwork.basePrice} artworkId={bidArtwork._id} highestBid={highestBid} setHighestBid={setHighestBid} setArtworks={setArtworks} />
     </Modal >
   );
