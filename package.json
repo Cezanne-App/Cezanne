@@ -33,7 +33,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-modal": "^3.11.1",
-    "regenerator-runtime": "^0.13.3"
+    "regenerator-runtime": "^0.13.3",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
