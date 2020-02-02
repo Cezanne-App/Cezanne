@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ChartList from 'chartist';
 
-const BiddingChart = () => {
-  const [bids, setBids] = useState([]);
+const BiddingChart = ({ bids }) => {
   const [labels, setLabels] = useState([]);
 
   var data = {
     labels: ['Week1', 'Week2', 'Week3', 'Week4', 'Week5'],
-    series: [
-      [0, 15, 2, 7, 7]
-    ]
+    series: [bids]
   };
 
   var options = {

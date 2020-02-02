@@ -35,5 +35,16 @@ module.exports = {
           });
       }
     }
+  },
+  bids: {
+    get: (req, res) => {
+      const artworkId = parseInt(req.params.artworkId);
+      models.bids.getAll(artworkId)
+        .then(data => res.json(data))
+        .catch(e => {
+          res.sendStatus(404);
+          throw new Error(e);
+        })
+    }
   }
 };

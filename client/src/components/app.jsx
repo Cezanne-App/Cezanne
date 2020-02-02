@@ -12,7 +12,7 @@ const App = () => {
   const [bidModalIsOpen, setBidModalIsOpen] = useState(false);
   const [imageModalIsOpen, setImageModalIsOpen] = useState(false);
 
-  const [artwork, setArtwork] = useState(null);
+  const [artwork, setArtwork] = useState({});
   const [artworks, setArtworks] = useState([]);
 
   const [user, setUser] = useState(null);
@@ -29,7 +29,7 @@ const App = () => {
       <>
         <Navbar setAddModalIsOpen={setAddModalIsOpen} user={user}/>
         <Feed artworks={artworks} setArtwork={setArtwork} setModalIsOpen={setBidModalIsOpen} setImageModalIsOpen={setImageModalIsOpen}/>
-        <BidModal bidArtwork={artwork} setArtworks={setArtworks} modalIsOpen={bidModalIsOpen} setModalIsOpen={setBidModalIsOpen} />
+        <BidModal artwork={artwork} setArtworks={setArtworks} modalIsOpen={bidModalIsOpen} setModalIsOpen={setBidModalIsOpen} />
         <AddModal addModalIsOpen={addModalIsOpen} setAddModalIsOpen={setAddModalIsOpen} setArtworks={setArtworks}/>
         <ImageModal artwork={artwork} modalIsOpen={imageModalIsOpen} setModalIsOpen={setImageModalIsOpen}/>
       </>
