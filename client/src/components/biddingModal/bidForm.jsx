@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import { getArtworks } from '../../../helpers/index.js';
-import { updateBid } from '../../../helpers/index.js';
+import { updateBid, getArtworks, saveBid } from '../../../helpers/index.js';
 
-const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, setArtworks }) => {
+const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, bids, setBids, emit }) => {
   const [bidPrice, setBidPrice] = useState(null);
   const [isInvalid, setIsInvalid] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('x');
+  const [submitMessage, setSubmitMessage] = useState('null');
+
+  // const sendBids = (value, date) => {
+  //   // socket.emit('bid', {
+  //   //   artworkId: artworkId,
+  //   //   value: value,
+  //   //   date: date
+  //   // });
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,35 +20,36 @@ const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, setArtworks 
       setIsInvalid(true);
       setSubmitMessage('Bid is not valid!');
     } else {
-      updateBid(artworkId, bidPrice)
-      .then(() => getArtworks())
-      .then(({data}) => {
-        setArtworks(data);
+      setIsInvalid(false);
+      saveBid({
+        artworkId: artworkId,
+        bidderId: '1',
+        ownerId: '1',
+        value: bidPrice
+      })
+      .then(() => {
+        let newBids = {...bids};
+        const date = Date.now();
+        newBids.values.push(bidPrice);
+        newBids.dates.push(date);
+        setBids(newBids);
+        emit.bid(artworkId, bidPrice, date)
         setHighestBid(bidPrice);
-        setIsInvalid(false);
         setSubmitMessage('You are now the highest bidder!');
       })
       .catch(e => {
         setIsInvalid(true);
         setSubmitMessage('Could not save the bid. Try again!');
-        console.error(e);
+        throw new Error(e);
       });
     }
   };
 
   const getSubmitMessageStyle = () => {
-    if (submitMessage === 'x') {
-      return {
-        visibility: 'hidden'
-      }
-    } else if (isInvalid === true) {
-      return {
-        visibility: 'visible',
-      }
+    if (submitMessage === 'null') {
+      return { visibility: 'hidden' }
     } else {
-      return {
-        visibility: 'visible',
-      }
+      return { visibility: 'visible'}
     }
   };
 
