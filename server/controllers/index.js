@@ -35,5 +35,36 @@ module.exports = {
           });
       }
     }
-  }
+  },
+  bids: {
+    get: (req, res) => {
+      const artworkId = req.params.artworkId;
+
+      models.bids.getAll(artworkId)
+        .then(data => {
+          const response = {
+            values: [],
+            dates: []
+          };
+          data.forEach(ele => {
+            response.values.push(ele.value);
+            response.dates.push(ele.date);
+          });
+          res.json(response)
+        })
+        .catch(e => {
+          res.sendStatus(404);
+          console.error(e);
+        })
+    },
+    post: (req, res) => {
+      const bid = req.body;
+      models.bids.save(bid)
+        .then(() => res.sendStatus(201))
+        .catch(e => {
+          res.sendStatus(500);
+          console.error(e);
+        })
+    }
+  },
 };
