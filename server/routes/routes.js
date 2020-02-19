@@ -8,5 +8,6 @@ router.put('/artworks/:id', controllers.artworks.put);
 
 // Routes
 router.get('/bids/:artworkId', controllers.bids.get);
+router.post('/bids', controllers.bids.post);
 
 module.exports = router;

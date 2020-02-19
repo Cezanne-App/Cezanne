@@ -19,9 +19,13 @@ app.use(express.static(__dirname + "/../client/dist"));
 // Initialization
 const server = http.createServer(app);
 const io = socket(server);
-io.on("connection", () => {
-  console.log("Connected sockets");
+var counter = 0
+io.on("connection", (socket) => {
+  console.log("Bidder connected");
+  socket.on('bid', (bid) => socket.broadcast.emit('bid', bid)
+  );
 });
+
 server.listen(PORT, e => {
   if (e) {
     console.error(e);

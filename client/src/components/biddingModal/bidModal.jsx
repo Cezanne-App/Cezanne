@@ -4,17 +4,15 @@ import BidForm from './bidForm.jsx';
 import BiddingChart from './biddingChart.jsx';
 import { getAllBids } from '../../../helpers/index.js';
 
-const BidModal = ({ artwork, setArtworks, modalIsOpen, setModalIsOpen }) => {
+const BidModal = ({ artwork, setArtworks, modalIsOpen, setModalIsOpen, bids, setBids, emit }) => {
   const [highestBid, setHighestBid] = useState(null);
-  const [bids, setBids] = useState([]);
 
   useEffect(() => {
     if (artwork._id) {
       setHighestBid(artwork.highestBid);
-
       getAllBids(artwork._id)
       .then(({ data }) => setBids(data))
-      .catch(e => { throw new Error(e) })
+      .catch(e => console.error(e))
     }
   }, [artwork]);
 
@@ -43,7 +41,7 @@ const BidModal = ({ artwork, setArtworks, modalIsOpen, setModalIsOpen }) => {
       </div>
  
       <BiddingChart bids={bids} />
-      <BidForm basePrice={artwork.basePrice} artworkId={artwork._id} highestBid={highestBid} setHighestBid={setHighestBid} setArtworks={setArtworks} />
+      <BidForm basePrice={artwork.basePrice} artworkId={artwork._id} highestBid={highestBid} setHighestBid={setHighestBid} bids={bids} setBids={setBids} emit={emit} />
     </Modal >
   );
 };

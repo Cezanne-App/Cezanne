@@ -6,7 +6,7 @@ mongoose.connect(host, {
   useUnifiedTopology: true
 })
   .then(() => console.log('Connected to MongoDB'))
-  .catch(error => console.error(error));
+  .catch(e => { throw new Error(e) })
 
 const artworkSchema = new mongoose.Schema({
   title: String,
@@ -24,9 +24,9 @@ const artworkSchema = new mongoose.Schema({
 });
 
 const bidSchema = new mongoose.Schema({
-  artworkId: Number,
-  bidderId: Number,
-  ownerId: Number,
+  artworkId: String,
+  bidderId: String,
+  ownerId: String,
   value: Number,
   date: { type: Date, default: Date.now() }
 });

@@ -14,7 +14,10 @@ module.exports = {
   },
   bids: {
     getAll: (artworkId) => {
-      return db.Bid.find({ artworkId: artworkId })
+      return db.Bid.find({ artworkId: artworkId }, 'value date')
+    },
+    save: (bid) => {
+      return db.Bid.create(bid);
     }
   }
 };
