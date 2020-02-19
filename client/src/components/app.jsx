@@ -8,16 +8,6 @@ import ImageModal from './post/imageModal.jsx';
 import { getArtworks } from '../../helpers/index.js';
 import socketIOClient from 'socket.io-client';
 const socket = socketIOClient(window.location.href);
-var counter = 0;
-socket.on('bid', (bid) => {
-  // if (bid.artworkId === artwork._id) {
-  //   const newBids = {...bids};
-  //   newBids.values.push(bid.value);
-  //   newBids.dates.push(bid.date);
-  //   setBids(newBids);
-  // }
-  console.log(counter +=1 )
-});
 
 const App = () => {
   const [addModalIsOpen, setAddModalIsOpen] = useState(false);
@@ -31,6 +21,14 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [isLogged, setLogged] = useState(false);
 
+  socket.on('bid', (bid) => {
+    if (bid.artworkId === artwork._id) {
+      const newBids = {...bids};
+      newBids.values.push(bid.value);
+      newBids.dates.push(bid.date);
+      setBids(newBids);
+    }
+  });
 
   useEffect(() => {
     getArtworks().then(({data}) => setArtworks(data)).catch(e => console.error(e));
