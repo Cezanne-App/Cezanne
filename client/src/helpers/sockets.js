@@ -1,5 +1,6 @@
 import store from '../store/index';
 import addBid from '../actions/creators/addBid';
+import setHighestBid from '../actions/creators/setHighestBid';
 import socketIOClient from 'socket.io-client';
 const socket = socketIOClient(window.location.href);
 
@@ -11,6 +12,7 @@ export const subscribeToBids = () => {
       let state = store.getState();
       let artwork = state.bidModal.artwork;
       if (bid.artworkId === artwork._id) {
+        store.dispatch(setHighestBid(bid.value));
         store.dispatch(addBid(bid));
       }
     });

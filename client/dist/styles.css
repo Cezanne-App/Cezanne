@@ -939,9 +939,9 @@ __  __            _          _
 }
 
 #bidModal {
-  overflow: scroll;
   width: 75%;
   height: 75%;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;

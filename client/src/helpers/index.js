@@ -23,7 +23,8 @@ export const saveBid = bid => {
 };
 
 export const updateBid = (id, bid) => {
-  return axios.put(`artworks/${id}`, {
+  axios.put(`artworks/${id}`, {
     bid: bid
-  });
+  })
+    .catch(err => console.error(err));
 };

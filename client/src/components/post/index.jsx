@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { getAllBids } from '../../helpers/index';
 
-const Post = ({ artwork, setArtwork, setBids, setModalIsOpen, setImageModalIsOpen }) => {
+const Post = ({ artwork, setArtwork, setBids, setHighestBid, setModalIsOpen, setImageModalIsOpen }) => {
 
   const handleBidClick = () => {
     setArtwork(artwork);
     getAllBids(artwork._id)
-      .then(({ data }) => setBids(data))
+      .then(({ data }) => {
+        setHighestBid(data.values[data.values.length-1]);
+        setBids(data)
+      })
       .catch(err => console.error(err))
     setModalIsOpen(true);
   };
@@ -28,7 +31,7 @@ const Post = ({ artwork, setArtwork, setBids, setModalIsOpen, setImageModalIsOpe
         <div className='post-bid-button'>
           <button onClick={handleBidClick}><img className='post-icon' src='./images/post_icon.png' height='30px' width='30px'/></button>
           <div className='post-prices'>
-            <span>{`${artwork.highestBid === null || artwork.highestBid === undefined? 'No bids yet!' : `Highest: $ ${artwork.highestBid}`}`}</span>
+            <span>{`${artwork.highestBid === null || artwork.highestBid === undefined? 'No bids yet!' : ''}`}</span>
             <span>{`Base: $ ${artwork.basePrice}`}</span>
           </div> 
         </div>

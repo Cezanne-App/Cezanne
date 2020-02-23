@@ -1,6 +1,7 @@
 const initialStore = {
   artwork: {},
-  bids: { values: [], dates: [] }
+  bids: { values: [], dates: [] },
+  highestBid: null
 };
 
 export default (state = initialStore, action) => {
@@ -10,6 +11,9 @@ export default (state = initialStore, action) => {
     }
     case 'SET_BIDS': {
       return { ...state, bids: action.payload }
+    }
+    case 'SET_HIGHEST_BID': {
+      return { ...state, highestBid: action.payload }
     }
     case 'ADD_BID': {
       let bid = action.payload;

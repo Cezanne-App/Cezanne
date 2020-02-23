@@ -20,6 +20,8 @@ const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, addBid }) =>
         value: bidPrice
       })
       .then(() => {
+        updateBid(artworkId, bidPrice);
+        setHighestBid(bidPrice);
         const date = Date.now();
         const bid = {
           artworkId,
@@ -28,7 +30,6 @@ const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, addBid }) =>
         };
         addBid(bid);
         sendBid(bid);
-        setHighestBid(bidPrice);
         setIsInvalid(false);
         setSubmitMessage('You are now the highest bidder!');
       })
@@ -53,7 +54,7 @@ const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, addBid }) =>
       <div id='bid-form-subcontainer'>
         <div id='bid-form-input-box'>
         <form id='bidForm' onSubmit={(e) => handleSubmit(e)}>
-          <input type='text' placeholder='Enter your bid' onChange={({target}) => setBidPrice(parseInt(target.value))}/>
+          <input type='text' placeholder='Enter your bid' onChange={({ target }) => setBidPrice(parseInt(target.value))}/>
         </form>
         <button form='bidForm'>Bid!</button>
         </div>
