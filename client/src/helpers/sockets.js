@@ -4,7 +4,7 @@ import socketIOClient from 'socket.io-client';
 const socket = socketIOClient(window.location.href);
 
 let subscriptions = 0;
-export const subscribeToBids = cb => {
+export const subscribeToBids = () => {
   subscriptions++;
   if (subscriptions === 1) {
     socket.on('bid', bid => {

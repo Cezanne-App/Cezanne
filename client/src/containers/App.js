@@ -1,11 +1,6 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
 
-const mapStateToProps = state => ({
-  artwork: null,
-  bids: []
-});
-
-const AppContainer = connect(mapStateToProps)(App);
+const AppContainer = connect(null)(App);
 
 export default AppContainer;

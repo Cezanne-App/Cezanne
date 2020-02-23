@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BidModal from '../../components/biddingModal/bidModal';
+import BidModal from '../../components/BidModal/index';
 
 const mapStateToProps = store => ({
   artwork: store.bidModal.artwork,

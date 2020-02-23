@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BidForm from '../../components/biddingModal/bidForm';
+import BidForm from '../../components/BidModal/bidForm';
 import addBid from '../../actions/creators/addBid';
 
 const mapDispatchToProps = dispatch => ({

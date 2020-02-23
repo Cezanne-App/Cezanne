@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { updateBid, getArtworks, saveBid } from '../../helpers/index.js';
 import { sendBid } from '../../helpers/sockets';
 
-const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, setBids, emit, addBid }) => {
+const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, addBid }) => {
   const [bidPrice, setBidPrice] = useState(null);
   const [isInvalid, setIsInvalid] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('null');

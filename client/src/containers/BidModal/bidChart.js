@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BidChart from '../../components/biddingModal/biddingChart';
+import BidChart from '../../components/BidModal/bidChart';
 
 const mapStateToProps = store => ({
   bids: store.bidModal.bids,
