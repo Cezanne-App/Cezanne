@@ -6,7 +6,7 @@ mongoose.connect(host, {
   useUnifiedTopology: true
 })
   .then(() => console.log('Connected to MongoDB'))
-  .catch(e => { throw new Error(e) })
+  .catch(err => console.error(err))
 
 const artworkSchema = new mongoose.Schema({
   title: String,

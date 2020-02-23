@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
-import { updateBid, getArtworks, saveBid } from '../../../helpers/index.js';
+import { updateBid, getArtworks, saveBid } from '../../helpers/index.js';
+import { sendBid } from '../../helpers/sockets';
 
-const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, bids, setBids, emit }) => {
+const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, setBids, emit, addBid }) => {
   const [bidPrice, setBidPrice] = useState(null);
   const [isInvalid, setIsInvalid] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('null');
-
-  // const sendBids = (value, date) => {
-  //   // socket.emit('bid', {
-  //   //   artworkId: artworkId,
-  //   //   value: value,
-  //   //   date: date
-  //   // });
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +13,6 @@ const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, bids, setBid
       setIsInvalid(true);
       setSubmitMessage('Bid is not valid!');
     } else {
-      setIsInvalid(false);
       saveBid({
         artworkId: artworkId,
         bidderId: '1',
@@ -28,13 +20,16 @@ const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, bids, setBid
         value: bidPrice
       })
       .then(() => {
-        let newBids = {...bids};
         const date = Date.now();
-        newBids.values.push(bidPrice);
-        newBids.dates.push(date);
-        setBids(newBids);
-        emit.bid(artworkId, bidPrice, date)
+        const bid = {
+          artworkId,
+          value: bidPrice,
+          date
+        };
+        addBid(bid);
+        sendBid(bid);
         setHighestBid(bidPrice);
+        setIsInvalid(false);
         setSubmitMessage('You are now the highest bidder!');
       })
       .catch(e => {

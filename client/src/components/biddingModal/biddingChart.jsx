@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ChartList from 'chartist';
 
 const BiddingChart = ({ bids }) => {
+  
   const data = {
     labels: [bids.dates],
     series: [bids.values]

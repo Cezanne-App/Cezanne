@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import BidForm from './bidForm.jsx';
-import BiddingChart from './biddingChart.jsx';
-import { getAllBids } from '../../../helpers/index.js';
+import BidFormContainer from '../../containers/BidModal/bidForm';
+import BidChartContainer from '../../containers/BidModal/bidChart';
 
 const BidModal = ({ artwork, setArtworks, modalIsOpen, setModalIsOpen, bids, setBids, emit }) => {
   const [highestBid, setHighestBid] = useState(null);
-
+  if (!artwork) artwork = {};
   useEffect(() => {
     if (artwork._id) {
       setHighestBid(artwork.highestBid);
-      getAllBids(artwork._id)
-      .then(({ data }) => setBids(data))
-      .catch(e => console.error(e))
     }
   }, [artwork]);
 
@@ -40,8 +36,8 @@ const BidModal = ({ artwork, setArtworks, modalIsOpen, setModalIsOpen, bids, set
         <p className='bid-expiration-date'>The bidding period ends on {artwork.expirationDate}</p>
       </div>
  
-      <BiddingChart bids={bids} />
-      <BidForm basePrice={artwork.basePrice} artworkId={artwork._id} highestBid={highestBid} setHighestBid={setHighestBid} bids={bids} setBids={setBids} emit={emit} />
+      <BidChartContainer />
+      <BidFormContainer basePrice={artwork.basePrice} artworkId={artwork._id} highestBid={highestBid} setHighestBid={setHighestBid} bids={bids} setBids={setBids} emit={emit} />
     </Modal >
   );
 };

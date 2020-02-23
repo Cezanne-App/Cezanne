@@ -1,4 +1,4 @@
-const ENTRY_DIR = __dirname + '/client/src/index.jsx';
+const ENTRY_DIR = __dirname + '/client/src/index.js';
 const OUTPUT_DIR = __dirname + '/client/dist';
 
 module.exports = {

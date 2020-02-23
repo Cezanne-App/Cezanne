@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import { addArtwork } from '../../../helpers/index.js';
-import { getArtworks } from '../../../helpers/index.js';
+import React, { useState } from 'react';
+import { addArtwork } from '../../helpers/index.js';
+import { getArtworks } from '../../helpers/index.js';
 
 const AddForm = ({ setArtworks }) => {
   const [author, setAuthor] = useState('');
