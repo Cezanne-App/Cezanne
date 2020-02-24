@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Post from '../../components/Post/index';
+import Post from '../../components/Post/index.jsx';
 import setArtwork from '../../actions/creators/setArtwork';
 import setBids from '../../actions/creators/setBids';
 import setHighestBid from '../../actions/creators/setHighestBid';
