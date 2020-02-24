@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Login from './Login/index';
-import Navbar from './Navbar/navbar.jsx';
+import Navbar from './navbar/navbar.jsx';
 import Feed from './Feed/index.jsx';
 import BidModalContainer from '../containers/BidModal/index.js';
-import ImageModalContainer from '../containers/Post/imageModal.js';
-import AddModal from './Navbar/addModal.jsx';
+import ImageModalContainer from '../containers/post/imageModal.js';
+import AddModal from './navbar/addModal.jsx';
 import { getArtworks } from '../helpers/index.js';
 import { subscribeToBids } from '../helpers/sockets.js';
 
