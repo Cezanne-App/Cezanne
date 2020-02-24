@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { getAllBids } from '../../helpers/index';
 
-const Post = ({ artwork, setArtwork, setBids, setHighestBid, setModalIsOpen, setImageModalIsOpen }) => {
-
+const Post = ({
+  artwork,
+  setArtwork,
+  setBids,
+  setHighestBid,
+  setModalIsOpen,
+  setImageModalIsOpen,
+}) => {
   const handleBidClick = () => {
     setArtwork(artwork);
     getAllBids(artwork._id)
       .then(({ data }) => {
-        setHighestBid(data.values[data.values.length-1]);
-        setBids(data)
+        setHighestBid(data.values[data.values.length - 1]);
+        setBids(data);
       })
-      .catch(err => console.error(err))
+      .catch(err => console.error(err));
     setModalIsOpen(true);
   };
 
@@ -20,20 +26,36 @@ const Post = ({ artwork, setArtwork, setBids, setHighestBid, setModalIsOpen, set
   };
 
   return (
-    <div className='post'>
-      <div className='post-user-header'>{artwork.author}</div>
-      <div className='post-img-container' onClick={handleImageClick}><img className='post-image' src={artwork.image} height='100px' width='100px'/></div>
-      <div className='post-info-container'>
-        <div className='post-info'>
+    <div className="post">
+      <div className="post-user-header">{artwork.author}</div>
+      <div className="post-img-container" onClick={handleImageClick}>
+        <img
+          className="post-image"
+          src={artwork.image}
+          height="100px"
+          width="100px"
+          alt=""
+        />
+      </div>
+      <div className="post-info-container">
+        <div className="post-info">
           <h4>{artwork.title}</h4>
           <span>{`${artwork.technique}, ${artwork.height} x ${artwork.width}`}</span>
         </div>
-        <div className='post-bid-button'>
-          <button onClick={handleBidClick}><img className='post-icon' src='./images/post_icon.png' height='30px' width='30px'/></button>
-          <div className='post-prices'>
-            <span>{`${artwork.highestBid === null || artwork.highestBid === undefined? 'No bids yet!' : ''}`}</span>
+        <div className="post-bid-button">
+          <button type="button" onClick={handleBidClick}>
+            <img
+              className="post-icon"
+              src="./images/post_icon.png"
+              height="30px"
+              width="30px"
+              alt="bid button"
+            />
+          </button>
+          <div className="post-prices">
+            <span>{`${!artwork.highestBid ? 'No bids yet!' : ''}`}</span>
             <span>{`Base: $ ${artwork.basePrice}`}</span>
-          </div> 
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-const models = require("../../db/models/index.js");
+const models = require('../../db/models/index.js');
 
 module.exports = {
   artworks: {
@@ -21,9 +21,9 @@ module.exports = {
         });
     },
     put: (req, res) => {
-      const id = req.params.id;
-      const bid = req.body.bid;
-      if (typeof bid !== "number" || bid <= 0) {
+      const { id } = req.params;
+      const { bid } = req.body;
+      if (typeof bid !== 'number' || bid <= 0) {
         res.sendStatus(404);
       } else {
         models.artWorks
@@ -34,37 +34,39 @@ module.exports = {
             console.error(e);
           });
       }
-    }
+    },
   },
   bids: {
     get: (req, res) => {
-      const artworkId = req.params.artworkId;
+      const { artworkId } = req.params;
 
-      models.bids.getAll(artworkId)
+      models.bids
+        .getAll(artworkId)
         .then(data => {
           const response = {
             values: [],
-            dates: []
+            dates: [],
           };
           data.forEach(ele => {
             response.values.push(ele.value);
             response.dates.push(ele.date);
           });
-          res.json(response)
+          res.json(response);
         })
         .catch(e => {
           res.sendStatus(404);
           console.error(e);
-        })
+        });
     },
     post: (req, res) => {
       const bid = req.body;
-      models.bids.save(bid)
+      models.bids
+        .save(bid)
         .then(() => res.sendStatus(201))
         .catch(e => {
           res.sendStatus(500);
           console.error(e);
-        })
-    }
+        });
+    },
   },
 };

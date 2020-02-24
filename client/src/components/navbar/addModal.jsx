@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
-import AddForm from './addForm.jsx';
+import AddForm from './addForm';
 
 const AddModal = ({ setArtworks, addModalIsOpen, setAddModalIsOpen }) => {
-  var subtitle;
-  const handleModalClose = (e) => {
+  const handleModalClose = e => {
     e.preventDefault();
     setAddModalIsOpen(false);
   };
@@ -14,15 +13,17 @@ const AddModal = ({ setArtworks, addModalIsOpen, setAddModalIsOpen }) => {
   return (
     <Modal
       isOpen={addModalIsOpen}
-      onRequestClose={(e) => handleModalClose(e)}
+      onRequestClose={e => handleModalClose(e)}
       id="addModal"
-      className="Modal" overlayClassName="ModalOverlay"
-      contentLabel="Example Modal">
+      className="Modal"
+      overlayClassName="ModalOverlay"
+      contentLabel="Example Modal"
+    >
       <div className="modal-header">
-        {<h2 ref={_subtitle => (subtitle = _subtitle)}>Share your art!</h2>}
+        <h2>Share your art!</h2>
       </div>
-      <AddForm setArtworks={setArtworks}/>
-    </Modal >
+      <AddForm setArtworks={setArtworks} />
+    </Modal>
   );
 };
 

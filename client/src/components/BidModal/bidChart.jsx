@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ChartList from 'chartist';
 
 const BiddingChart = ({ bids }) => {
-  
   const data = {
     labels: [bids.dates],
-    series: [bids.values]
+    series: [bids.values],
   };
 
   const options = {
@@ -16,25 +15,20 @@ const BiddingChart = ({ bids }) => {
     showGridBackground: false,
     axisX: {
       showGrid: false,
-      showLabel: false
+      showLabel: false,
     },
     // Y-Axis specific configuration
     axisY: {
       // Lets offset the chart a bit from the labels
       offset: 60,
-      labelInterpolationFnc: function(value) {
-        return '$' + value;
-      }
-    }
+      labelInterpolationFnc(value) {
+        return `$${value}`;
+      },
+    },
   };
 
-  useEffect(() => {
-    const chart = new ChartList.Line('.ct-chart', data, options)
-  });
-
-  return (
-    <div className='ct-chart'></div>
-  );
+  new ChartList.Line('.ct-chart', data, options);
+  return <div className="ct-chart" />;
 };
 
 export default BiddingChart;

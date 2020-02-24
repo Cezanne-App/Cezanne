@@ -9,7 +9,7 @@ export const getArtworks = () => {
 
 export const addArtwork = post => {
   return axios.post('/artworks', {
-    post: post
+    post,
   });
 };
 
@@ -19,12 +19,13 @@ export const getAllBids = artworkId => {
 };
 
 export const saveBid = bid => {
-  return axios.post('/bids', bid)
+  return axios.post('/bids', bid);
 };
 
 export const updateBid = (id, bid) => {
-  axios.put(`artworks/${id}`, {
-    bid: bid
-  })
+  axios
+    .put(`artworks/${id}`, {
+      bid,
+    })
     .catch(err => console.error(err));
 };

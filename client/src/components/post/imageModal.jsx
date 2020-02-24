@@ -10,15 +10,25 @@ const imageModal = ({ artwork, modalIsOpen, setModalIsOpen }) => {
     <Modal
       isOpen={modalIsOpen}
       onRequestClose={handleModalClose}
-      id='expanded-image-modal'
-      className='Modal'
-      overlayClassName='ModalOverlay'
-      contentLabel='expanded image'
+      id="expanded-image-modal"
+      className="Modal"
+      overlayClassName="ModalOverlay"
+      contentLabel="expanded image"
     >
-      <div id='expanded-image-wrapper'>
-        <button className='close-modal-button' onClick={handleModalClose}>&times;</button>
-        <div id='expanded-image-container'>
-          <img id ='expanded-image' src={artwork === null ? '' : artwork.image} />
+      <div id="expanded-image-wrapper">
+        <button
+          type="button"
+          className="close-modal-button"
+          onClick={handleModalClose}
+        >
+          &times;
+        </button>
+        <div id="expanded-image-container">
+          <img
+            id="expanded-image"
+            src={artwork === null ? '' : artwork.image}
+            alt=""
+          />
         </div>
       </div>
     </Modal>

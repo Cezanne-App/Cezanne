@@ -5,9 +5,10 @@ import store from './store';
 import AppContainer from './containers/App';
 
 const App = () => (
-  <Provider store={store} >
+  <Provider store={store}>
     <AppContainer />
   </Provider>
 );
 
-ReactDom.render(<App />, document.getElementById('app'));
+const root = document.getElementById('app');
+ReactDom.render(<App />, root);

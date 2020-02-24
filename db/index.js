@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
+
 const host = process.env.MONGODB_URI || 'mongodb://localhost/cezanne';
 
-mongoose.connect(host, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose
+  .connect(host, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error(err))
+  .catch(err => console.error(err));
 
 const artworkSchema = new mongoose.Schema({
   title: String,
@@ -20,7 +22,7 @@ const artworkSchema = new mongoose.Schema({
   basePrice: Number,
   highestBid: Number,
   highestBidderId: Number,
-  expirationDate: Date
+  expirationDate: Date,
 });
 
 const bidSchema = new mongoose.Schema({
@@ -28,7 +30,7 @@ const bidSchema = new mongoose.Schema({
   bidderId: String,
   ownerId: String,
   value: Number,
-  date: { type: Date, default: Date.now() }
+  date: { type: Date, default: Date.now() },
 });
 
 const userSchema = new mongoose.Schema({
@@ -37,7 +39,7 @@ const userSchema = new mongoose.Schema({
   userName: String,
   email: String,
   address: String,
-  isArtist: Boolean
+  isArtist: Boolean,
 });
 
 const Artwork = mongoose.model('Artwork', artworkSchema);

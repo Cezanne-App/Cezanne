@@ -7,12 +7,9 @@ import setHighestBid from '../../actions/creators/setHighestBid';
 const mapDispatchToProps = dispatch => ({
   setArtwork: artwork => dispatch(setArtwork(artwork)),
   setBids: bids => dispatch(setBids(bids)),
-  setHighestBid: bid => dispatch(setHighestBid(bid))
+  setHighestBid: bid => dispatch(setHighestBid(bid)),
 });
 
-const PostContainer = connect(
-  null,
-  mapDispatchToProps
-)(Post);
+const PostContainer = connect(null, mapDispatchToProps)(Post);
 
 export default PostContainer;
