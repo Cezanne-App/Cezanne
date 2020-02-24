@@ -3,7 +3,7 @@ import Login from './Login/index';
 import Navbar from './navbar/navbar.jsx';
 import Feed from './Feed/index.jsx';
 import BidModalContainer from '../containers/BidModal/index.js';
-import ImageModalContainer from '../containers/post/imageModal.js';
+import ImageModalContainer from '../containers/Post/imageModal.js';
 import AddModal from './navbar/addModal.jsx';
 import { getArtworks } from '../helpers/index.js';
 import { subscribeToBids } from '../helpers/sockets.js';
