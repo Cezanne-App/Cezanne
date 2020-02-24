@@ -16,7 +16,7 @@ const imageModal = ({ artwork, modalIsOpen, setModalIsOpen }) => {
       contentLabel='expanded image'
     >
       <div id='expanded-image-wrapper'>
-        <button onClick={handleModalClose}>&times;</button>
+        <button className='close-modal-button' onClick={handleModalClose}>&times;</button>
         <div id='expanded-image-container'>
           <img id ='expanded-image' src={artwork === null ? '' : artwork.image} />
         </div>

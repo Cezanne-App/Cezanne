@@ -52,13 +52,15 @@ const BidForm = ({ artworkId, basePrice, highestBid, setHighestBid, addBid }) =>
   return (
     <div id='bid-form-container'>
       <div id='bid-form-subcontainer'>
-        <div id='bid-form-input-box'>
-        <form id='bidForm' onSubmit={(e) => handleSubmit(e)}>
-          <input type='text' placeholder='Enter your bid' onChange={({ target }) => setBidPrice(parseInt(target.value))}/>
-        </form>
-        <button form='bidForm'>Bid!</button>
+        <div id='bid-form-input'>
+          <div id='bid-form-input-box'>
+            <form id='bidForm' onSubmit={(e) => handleSubmit(e)}>
+              <input type='text' placeholder='Enter your bid' onChange={({ target }) => setBidPrice(parseInt(target.value))}/>
+            </form>
+            <button form='bidForm'>Bid!</button>
+          </div>
+          <div className='form-submit-message' style={getSubmitMessageStyle()}>{submitMessage}</div>
         </div>
-        <div className='form-submit-message' style={getSubmitMessageStyle()}>{submitMessage}</div>
       </div>
     </div>
   );

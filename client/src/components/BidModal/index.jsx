@@ -18,22 +18,26 @@ const BidModal = ({ artwork, highestBid, modalIsOpen, setModalIsOpen }) => {
     <Modal
       isOpen={modalIsOpen}
       onRequestClose={handleModalClose}
-      id="bidModal"
+      id='bid-modal'
       className="Modal" 
       overlayClassName="ModalOverlay"
       contentLabel="bidding"
       >
-      <div className="modal-header">
-        {<h2 ref={_subtitle => (subtitle = _subtitle)}>{artwork.title}</h2>}
+      <div id='bidding-modal-wrapper'>
+        <button className='close-modal-button' onClick={handleModalClose}>&times;</button>
+        <div id='bidding-modal-container'>
+          <div className="modal-header">
+            {<h2 ref={_subtitle => (subtitle = _subtitle)}>{artwork.title}</h2>}
+          </div>
+          <div className='bid-form-info'>
+            <p>Base price: $ {artwork.basePrice}</p>
+            <p>{highestBid === null || highestBid === undefined ? 'No bids for this artwork yet!' : `Highest Bid: $ ${highestBid}`}</p>
+            <p className='bid-expiration-date'>The bidding period ends on {expirationDate}</p>
+          </div> 
+          <BidChartContainer />
+          <BidFormContainer basePrice={artwork.basePrice} artworkId={artwork._id} />
+        </div>
       </div>
-      <div className='bid-form-info'>
-        <p>Base price: $ {artwork.basePrice}</p>
-        <p>{highestBid === null || highestBid === undefined ? 'No bids for this artwork yet!' : `Highest Bid: $ ${highestBid}`}</p>
-        <p className='bid-expiration-date'>The bidding period ends on {expirationDate}</p>
-      </div>
- 
-      <BidChartContainer />
-      <BidFormContainer basePrice={artwork.basePrice} artworkId={artwork._id} />
     </Modal >
   );
 };
